@@ -2,14 +2,27 @@
     x:Class="ShoppingList.Uwp.Views.CreateListView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ShoppingList.Uwp.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="using:MvvmCross.Platforms.Uap.Views"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel>
-        <TextBlock Text="{Binding Test}" />
+    <views:MvxWindowsPage.Resources>
+        <ResourceDictionary>
+            <x:String x:Key="addIcon">Assets/fa-regular-400.ttf</x:String>
+        </ResourceDictionary>
+    </views:MvxWindowsPage.Resources>
+
+    <StackPanel Orientation="Vertical">
+        <ListView ItemsSource="{Binding ShoppingLists}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Title}"/>                
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Content="Add"
+                Command="{Binding AddCmd}"/>
     </StackPanel>
 </views:MvxWindowsPage>

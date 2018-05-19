@@ -4,13 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <MvxListView
+        android:id="@+id/searchresults_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        app:MvxItemTemplate="@layout/create_list_item"
+        app:MvxBind="ItemsSource ShoppingLists;" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
-            app:MvxBind="Text Test" />
+            android:text="Add"
+            android:gravity="center"
+            app:MvxBind="Click AddCmd" />
     </LinearLayout>
 </RelativeLayout>
